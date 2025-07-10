@@ -79,4 +79,100 @@ const className = Astro.props.class;
             {!(tags && tags.length > 0) && <div class="transition text-50 text-sm font-medium">{i18n(I18nKey.noTags)}</div>}
         </div>
     </div>
+
+    <!-- *views -->
+    <div class="flex items-center">
+        <div class="meta-icon"
+        >
+            <Icon name="material-symbols:visibility-outline-rounded" class="text-xl"></Icon>
+        </div>
+        <span class="text-50 text-sm font-medium" id="views-counter">加载中……</span>
+    </div>
+
 </div>
+
+<!-- umami.is -->
+<script>
+    // ============ 精简SPA路由监听系统 =============
+    function setupSPAListener(init, update) {
+        // 初始执行
+        init();
+        
+        // 状态追踪
+        let currentPath = location.pathname;
+        
+        // 路由变化检测函数
+        const detectRouteChange = () => {
+            const newPath = location.pathname;
+            if (newPath !== currentPath) {
+                currentPath = newPath;
+                update();
+            }
+        };
+        
+        // 标准路由监听
+        window.addEventListener('popstate', detectRouteChange);
+        
+        // 覆盖路由API
+        ['pushState', 'replaceState'].forEach(method => {
+            const original = history[method];
+            history[method] = function() {
+                original.apply(this, arguments);
+                setTimeout(detectRouteChange, 10);
+            };
+        });
+    }
+
+    // ========== Umami计数器业务逻辑 ===========
+    function setupUmamiCounter() {
+        const CONFIG = {
+            UMAMI_SHARE_ID: "SNmJvY36a7hSJoFd",
+            SITE_ID: "b4b8b3df-8c70-4844-994e-c55280c7e0b9",
+            API_BASE: "https://us.umami.is"
+        };
+        
+        // 更新显示元素
+        const updateCounter = (text) => {
+            const counterEl = document.getElementById('views-counter');
+            if (counterEl) counterEl.textContent = text;
+        };
+        
+        // 核心数据请求
+        const fetchPageViews = async () => {
+            try {
+                // 获取访问令牌
+                const tokenRes = await fetch(`${CONFIG.API_BASE}/api/share/${CONFIG.UMAMI_SHARE_ID}`);
+                const { token } = await tokenRes.json();
+                
+                // 构建API请求
+                const apiUrl = new URL(`${CONFIG.API_BASE}/api/websites/${CONFIG.SITE_ID}/stats`);
+                const params = new URLSearchParams({
+                    startAt: 0,
+                    endAt: Date.now(),
+                    unit: 'hour',
+                    timezone: 'Asia/Hong_Kong',
+                    url: location.pathname,
+                    compare: 'false'
+                });
+                apiUrl.search = params.toString();
+                
+                // 获取统计数据
+                const dataRes = await fetch(apiUrl, {
+                    headers: { 'x-umami-share-token': token }
+                });
+                
+                const { pageviews, visitors } = await dataRes.json();
+                updateCounter(`${pageviews?.value || 0} 次浏览 · ${visitors?.value || 0} 人看过`);
+            } catch (error) {
+                console.error('[Umami]', error);
+                updateCounter('统计更新中...');
+            }
+        };
+        
+        // 设置SPA监听器
+        setupSPAListener(fetchPageViews, fetchPageViews);
+    }
+
+    // 页面加载后启动
+    window.addEventListener('DOMContentLoaded', setupUmamiCounter);
+</script>

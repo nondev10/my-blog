@@ -106,6 +106,34 @@ const jsonLd = {
                 <Content />
             </Markdown>
 
+            <!-- Share -->
+            <div class="btn-card w-full p-4 rounded-xl bg-white mb-6" id="btn-share">
+                <div class="btn-regular rounded-lg h-10 w-10 active:scale-90 mr-3">
+                <Icon name="material-symbols:share-outline" class="text-xl"></Icon>
+                </div>
+
+                <div class="flex-1 text-left pr-4">
+                    <div class="text-base text-sm text-black/75 dark:text-white/75">分享本文</div>
+                    <div class="text-xs text-gray-600 mt-0.5 truncate" id="tit-share">{entry.data.title}</div>
+                </div>
+
+                <div class="font-medium text-sm mr-2 text-[var(--primary)]">复制链接</div>
+            </div>
+
+            <script>
+                // 使用事件委托方案（不受DOM重建影响）
+                document.body.addEventListener('click', event => {
+                    if (event.target.matches('#btn-share') || 
+                        event.target.closest('#btn-share')) {
+                        const title = document.getElementById("tit-share")?.innerText;
+                        navigator.clipboard.writeText(`${title} - ${location.href}`);
+                    }
+                });
+            </script>
+
+            <!-- Giscus -->
+            <div class="giscus mb-6"></div>
+
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
 
         </div>

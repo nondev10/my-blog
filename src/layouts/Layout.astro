@@ -101,6 +101,25 @@ const bannerOffset =
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- *Giscus and Umami -->
+		<script src="https://cloud.umami.is/script.js" data-website-id="b4b8b3df-8c70-4844-994e-c55280c7e0b9"></script>
+        <script src="https://giscus.app/client.js"
+            data-repo="noncoder10/Blogs"
+            data-repo-id="R_kgDOPGQhOw"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOPGQhO84Csa7G"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+        </script>
+
 		{favicons.map(favicon => (
 			<link rel="icon"
 				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
