@@ -13,6 +13,5 @@ src\components\Navbar.astro
 
 (Future):
 1. GoogleAds
-2. CF图床
-3. CF优选
-4. 重画头像、背景图
+2. CF优选
+3. 重画头像、背景图
