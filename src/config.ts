@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: true,
-		src: "https://img.picui.cn/free/2025/07/08/686c06ee9797e.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "https://pic.nximg.cn/file/20240612/25500342_180312804106_2.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: true, // Display the credit text of the banner image
@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src: 'https://img.picui.cn/free/2025/07/08/686c077903d85.ico',
+			src: 'https://ts3.tc.mm.bing.net/th/id/OIP-C.mqs2pvcUWMr09EUoI0PKawHaE7?rs=1&pid=ImgDetMain&o=7&rm=3',
 		}
 		// Leave this array empty to use the default favicon
 		// {
@@ -61,7 +61,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "https://img.picui.cn/free/2025/07/08/686c077903d85.ico", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "https://ts3.tc.mm.bing.net/th/id/OIP-C.mqs2pvcUWMr09EUoI0PKawHaE7?rs=1&pid=ImgDetMain&o=7&rm=3", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "IOfficial",
 	bio: "我想要做的，有钱人都做过了。",
 	links: [

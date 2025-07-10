@@ -1,0 +1,19 @@
+Head植入Giscus和Umami:
+src\layouts\Layout.astro
+
+Umami浏览量, Giscus评论区, 分享组件:
+src\pages\posts\[...slug].astro
+
+Umami浏览量（主页）：
+src\components\PostCard.astro
+
+自定义顶栏:
+src\layouts\MainGridLayout.astro
+src\components\Navbar.astro
+
+(Future):
+1. GoogleAds
+2. 部署问题
+3. CF图床
+4. CF优选
+5. 重画头像、背景图
