@@ -12,8 +12,6 @@ src\layouts\MainGridLayout.astro
 src\components\Navbar.astro
 
 (Future):
-1. 部署问题
-2. *GoogleAds
-3. *CF图床
-4. *CF优选
-5. 重画头像、背景图
+1. *GoogleAds
+2. *CF图床
+3. *CF优选
