@@ -1,17 +1,9 @@
-Head植入Giscus和Umami:
+Giscus and Umami in <HEAD>:
 src\layouts\Layout.astro
 
-Umami浏览量, Giscus评论区, 分享组件:
+Umami views, Giscus comments, Share addon:
 src\pages\posts\[...slug].astro
 
-自定义顶栏:
+Custom Navbar:
 src\layouts\MainGridLayout.astro
 src\components\Navbar.astro
-
-部署问题修复：
-src\styles\markdown.css
-
-(Future):
-1. *GoogleAds
-2. *CF图床
-3. *CF优选

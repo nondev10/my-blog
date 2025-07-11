@@ -76,17 +76,17 @@ const jsonLd = {
                 </div>
             </div>
 
-            <!-- umami.is -->
+            <!-- *umami.is -->
             <script>
-                // ============ 精简SPA路由监听系统 =============
+                // ============ SPA Monitor =============
                 function setupSPAListener(init, update) {
-                    // 初始执行
+                    // Initialize
                     init();
                     
-                    // 状态追踪
+                    // Stats Tracking
                     let currentPath = location.pathname;
                     
-                    // 路由变化检测函数
+                    // Route change detection function
                     const detectRouteChange = () => {
                         const newPath = location.pathname;
                         if (newPath !== currentPath) {
@@ -95,10 +95,10 @@ const jsonLd = {
                         }
                     };
                     
-                    // 标准路由监听
+                    // Standard Route monitoring
                     window.addEventListener('popstate', detectRouteChange);
                     
-                    // 覆盖路由API
+                    // Coverage routing API
                     ['pushState', 'replaceState'].forEach(method => {
                         const original = history[method];
                         history[method] = function() {
@@ -108,7 +108,7 @@ const jsonLd = {
                     });
                 }
 
-                // ========== Umami计数器业务逻辑 ===========
+                // ========== Umami counter ===========
                 function setupUmamiCounter() {
                     const CONFIG = {
                         UMAMI_SHARE_ID: "SNmJvY36a7hSJoFd",
@@ -116,20 +116,20 @@ const jsonLd = {
                         API_BASE: "https://us.umami.is"
                     };
                     
-                    // 更新显示元素
+                    // Updata counter text
                     const updateCounter = (text) => {
                         const counterEl = document.getElementById('views-counter');
                         if (counterEl) counterEl.textContent = text;
                     };
                     
-                    // 核心数据请求
+                    // Main function
                     const fetchPageViews = async () => {
                         try {
-                            // 获取访问令牌
+                            // Get Token
                             const tokenRes = await fetch(`${CONFIG.API_BASE}/api/share/${CONFIG.UMAMI_SHARE_ID}`);
                             const { token } = await tokenRes.json();
                             
-                            // 构建API请求
+                            // Structure API Request
                             const apiUrl = new URL(`${CONFIG.API_BASE}/api/websites/${CONFIG.SITE_ID}/stats`);
                             const params = new URLSearchParams({
                                 startAt: 0,
@@ -141,7 +141,7 @@ const jsonLd = {
                             });
                             apiUrl.search = params.toString();
                             
-                            // 获取统计数据
+                            // Get data
                             const dataRes = await fetch(apiUrl, {
                                 headers: { 'x-umami-share-token': token }
                             });
@@ -154,11 +154,11 @@ const jsonLd = {
                         }
                     };
                     
-                    // 设置SPA监听器
+                    // Set SPA monitor
                     setupSPAListener(fetchPageViews, fetchPageViews);
                 }
 
-                // 页面加载后启动
+                // Start after DOM loaded
                 window.addEventListener('DOMContentLoaded', setupUmamiCounter);
             </script>
 
@@ -199,7 +199,7 @@ const jsonLd = {
                 <Content />
             </Markdown>
 
-            <!-- Share -->
+            <!-- *Share -->
             <div class="btn-card w-full p-4 rounded-xl bg-white mb-6" id="btn-share">
                 <div class="btn-regular rounded-lg h-10 w-10 active:scale-90 mr-3">
                 <Icon name="material-symbols:share-outline" class="text-xl"></Icon>
@@ -214,7 +214,6 @@ const jsonLd = {
             </div>
 
             <script>
-                // 使用事件委托方案（不受DOM重建影响）
                 document.body.addEventListener('click', event => {
                     if (event.target.matches('#btn-share') || 
                         event.target.closest('#btn-share')) {
@@ -224,7 +223,7 @@ const jsonLd = {
                 });
             </script>
 
-            <!-- Giscus -->
+            <!-- *Giscus -->
             <div class="giscus mb-6"></div>
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
