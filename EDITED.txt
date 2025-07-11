@@ -4,12 +4,12 @@ src\layouts\Layout.astro
 Umami浏览量, Giscus评论区, 分享组件:
 src\pages\posts\[...slug].astro
 
-Umami浏览量（主页）：
-src\components\PostCard.astro
-
 自定义顶栏:
 src\layouts\MainGridLayout.astro
 src\components\Navbar.astro
+
+部署问题修复：
+src\styles\markdown.css
 
 (Future):
 1. *GoogleAds

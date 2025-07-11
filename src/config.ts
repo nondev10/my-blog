@@ -21,8 +21,8 @@ export const siteConfig: SiteConfig = {
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: true, // Display the credit text of the banner image
-			text: "Everything Goes On", // Credit text to be displayed
-			url: "https://www.bilibili.com", // (Optional) URL link to the original artwork or artist's page
+			text: "The lost, is the life.", // Credit text to be displayed
+			url: "javascript:alert('Let's Sayhow!')", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
 	toc: {
