@@ -1,9 +1,18 @@
-Giscus and Umami in <HEAD>:
-src\layouts\Layout.astro
+Deploy Fix:
+src\styles\markdown.css
 
-Umami views, Giscus comments, Share addon:
-src\pages\posts\[...slug].astro
+Giscus, Umami and imgZoom in <HEAD>:
+src\layouts\Layout.astro
 
 Custom Navbar:
 src\layouts\MainGridLayout.astro
 src\components\Navbar.astro
+
+Umami views, Giscus comments, Share addon:
+src\pages\posts\[...slug].astro
+
+PostCard views:
+src\components\PostCard.astro
+
+Profile views:
+src\components\widget\Profile.astro

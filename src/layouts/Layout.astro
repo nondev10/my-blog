@@ -102,6 +102,32 @@ const bannerOffset =
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 
+		<!-- *imgZoom -->
+		<script>
+			// Add a global image floating zoom effect
+			document.addEventListener('DOMContentLoaded', function() {
+				// Get all `img` elements
+				const images = document.querySelectorAll('img');
+				
+				// Add floating effect for each `img`
+				images.forEach(img => {
+					// Add default transition effects (compatible with different devices)
+					img.style.transition = 'transform 0.3s ease';
+					
+					// Mouse move in event
+					img.addEventListener('mouseenter', () => {
+						img.style.transform = 'scale(1.08)';
+						img.style.cursor = 'zoom-in';
+					});
+					
+					// Mouse move out event
+					img.addEventListener('mouseleave', () => {
+						img.style.transform = 'scale(1)';
+					});
+				});
+			});
+		</script>
+
 		<!-- *Giscus and Umami -->
 		<script src="https://cloud.umami.is/script.js" data-website-id="b4b8b3df-8c70-4844-994e-c55280c7e0b9"></script>
         <script src="https://giscus.app/client.js"
