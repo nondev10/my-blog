@@ -12,5 +12,3 @@ lang: ''
 # On My Blogs
 
 ## Intro
-
-Such a nice day! 我看着`AcoFork`的博客。
