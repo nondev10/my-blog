@@ -28,5 +28,3 @@ Such a nice day! 我看着`AcoFork`的博客。
 $e^{i\pi}=-1$
 
 真不错！！！
-
-## Outro
