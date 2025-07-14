@@ -20,5 +20,3 @@ Such a nice day! 我看着`AcoFork`的博客。
 ## Wow~
 
 ![1](https://ts3.tc.mm.bing.net/th/id/OIP-C.mqs2pvcUWMr09EUoI0PKawHaE7?rs=1&pid=ImgDetMain&o=7&rm=3)
-
-`Fuwari`模板真不错！
