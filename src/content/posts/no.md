@@ -10,5 +10,3 @@ lang: ''
 ---
 
 # On My Blogs
-
-## Intro
