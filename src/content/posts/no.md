@@ -24,5 +24,3 @@ Such a nice day! 我看着`AcoFork`的博客。
 `Fuwari`模板真不错！
 
 ## Cool
-
-$e^{i\pi}=-1$
