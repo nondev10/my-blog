@@ -14,5 +14,3 @@ lang: ''
 ## Intro
 
 Such a nice day! 我看着`AcoFork`的博客。
-
-欸~☝🤓自己弄一个博客瞧瞧！
