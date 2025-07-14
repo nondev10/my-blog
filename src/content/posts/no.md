@@ -30,5 +30,3 @@ $e^{i\pi}=-1$
 真不错！！！
 
 ## Outro
-
-Such a wonderful day!
