@@ -89,7 +89,7 @@ const { remarkPluginFrontmatter } = await entry.render();
         const postElements = document.querySelectorAll('[data-slug]');
 
         postElements.forEach(counterEl => {
-            const slug = counterEl.dataset.slug; // 如 "post-123"
+            const slug = counterEl.dataset.slug;
             console.log(slug);
             
             setupUmamiCounter();

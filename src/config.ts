@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: true,
-		src: "https://pic.nximg.cn/file/20240612/25500342_180312804106_2.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "assets/images/banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: true, // Display the credit text of the banner image
@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src: "https://ts3.tc.mm.bing.net/th/id/OIP-C.mqs2pvcUWMr09EUoI0PKawHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
+			src: "src/assets/images/favicon.png",	// *src!
 		},
 		// Leave this array empty to use the default favicon
 		// {
@@ -62,7 +62,7 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar:
-		"https://ts3.tc.mm.bing.net/th/id/OIP-C.mqs2pvcUWMr09EUoI0PKawHaE7?rs=1&pid=ImgDetMain&o=7&rm=3", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		"assets/images/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "IOfficial",
 	bio: "The lost, is the life.",
 	links: [

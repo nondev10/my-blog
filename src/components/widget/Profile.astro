@@ -36,7 +36,7 @@ const config = profileConfig;
         </div>
         <!-- *Profile views -->
         <div>
-            <div id="views-counter" class="text-center text-sm text-neutral-500 dark:text-neutral-400 mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+            <div id="profile-views-counter" class="text-center text-sm text-neutral-500 dark:text-neutral-400 mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
                 加载中……
             </div>
         </div>
@@ -84,7 +84,7 @@ const config = profileConfig;
                 
                 // Updata counter text
                 const updateCounter = (text) => {
-                    const counterEl = document.getElementById('views-counter');
+                    const counterEl = document.getElementById('profile-views-counter');
                     if (counterEl) counterEl.textContent = text;
                 };
                 
