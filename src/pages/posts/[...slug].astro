@@ -208,12 +208,12 @@ const jsonLd = {
                 </div>
 
                 <div class="flex-1 text-left pr-4">
-                    <div class="text-base text-sm text-black/75 dark:text-white/75">分享本文</div>
+                    <div class="text-base text-sm text-black/75 dark:text-white/75" id="txt-share">分享本文</div>
                     <div class="text-xs text-gray-600 mt-0.5 truncate" id="tit-share">{entry.data.title}</div>
                 </div>
 
                 <Icon name="material-symbols:check" style="opacity:0" class="text-xl" id="ico-share-after"></Icon>
-                <div class="font-medium text-sm mr-2 text-[var(--primary)]" id="txt-share">点击复制链接</div>
+                <div class="font-medium text-sm mr-2 text-[var(--primary)]" id="txt-share-link">点击复制链接</div>
             </div>
 
             <script>
@@ -224,6 +224,7 @@ const jsonLd = {
                         navigator.clipboard.writeText(`${title} - ${location.href}`);
 
                         const shareText = document.getElementById("txt-share");
+                        const shareLink = document.getElementById("txt-share-link");
                         const shareIcon = document.getElementById("ico-share");
                         const checkIcon = document.getElementById("ico-share-after");
                         const clonedCheck = checkIcon?.cloneNode(true);
@@ -231,13 +232,14 @@ const jsonLd = {
                         clonedCheck.id = shareIcon.id;
                         clonedCheck.style = "";
 
-                        shareText.innerText = "已复制！";
+                        shareLink.innerText = "已复制！";
+                        shareText.innerText = "感谢分享！";
                         shareIcon?.replaceWith(clonedCheck);
                         console.log('Hi!');
                         setTimeout(()=>{
                             console.log('Bye!');
                             const shareIcon = document.getElementById("ico-share");
-                            shareText.innerText = "点击复制链接";
+                            shareLink.innerText = "点击复制链接";
                             shareIcon?.replaceWith(clonedShare);
                         }, 1000)
                     }

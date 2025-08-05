@@ -11,7 +11,8 @@ explorer ".\src\content\posts\%mark%.md"
 pause > nul
 
 :: Commit
-git commit -am "Update %mark%"
+git add .
+git commit -m "Update %mark%"
 git push
 
 pause > nul
