@@ -1,3 +1,12 @@
+Edited Contents:
+EDITED.txt
+
+Auto New Post:
+new-post.bat
+
+Posts Contents:
+src\content\posts
+
 Basic Custom:
 src\assets\images
 src\config.ts

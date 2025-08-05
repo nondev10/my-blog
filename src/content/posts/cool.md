@@ -93,7 +93,7 @@ h2 {
     z-index:0;
     background:#000000;
     opacity:1;
-    margin-top:-20px;
+    margin-top:-35px;
     animation: Long 5s
 }
 @keyframes FadeIn {
@@ -142,3 +142,26 @@ Hi!
 /<div style="background-color: black">
 Hi!
 /</div>
+
+<input id="pass" style="background-color:grey">
+<button onclick="Hi()" style="background-color:grey">Hahaha~</button>
+<div id="wow">Loading……</div>
+<script>
+  function Hi() {
+    console.log("pass");
+    const text = document.getElementById("pass").value;
+    const El = document.getElementById("wow");
+    El.innerHTML = `Hi~${text}`;
+  }
+</script>
+<input id="nam" style="background-color:cyan">
+<button onclick="hello()" style="background-color:cyan">Hahaha~</button>
+<div id="tar">Loading……</div>
+<script>
+  function hello() {
+    console.log("nam");
+    const text = document.getElementById("nam").value;
+    const El = document.getElementById("tar");
+    El.innerText = `Hi~${text}`;
+  }
+</script>

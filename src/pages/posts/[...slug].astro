@@ -204,7 +204,7 @@ const jsonLd = {
             <!-- *Share -->
             <div class="btn-card w-full p-4 rounded-xl bg-white mb-6" id="btn-share">
                 <div class="btn-regular rounded-lg h-10 w-10 active:scale-90 mr-3">
-                <Icon name="material-symbols:share-outline" class="text-xl"></Icon>
+                <Icon name="material-symbols:share-outline" class="text-xl" id="ico-share"></Icon>
                 </div>
 
                 <div class="flex-1 text-left pr-4">
@@ -212,7 +212,8 @@ const jsonLd = {
                     <div class="text-xs text-gray-600 mt-0.5 truncate" id="tit-share">{entry.data.title}</div>
                 </div>
 
-                <div class="font-medium text-sm mr-2 text-[var(--primary)]">复制链接</div>
+                <Icon name="material-symbols:check" style="opacity:0" class="text-xl" id="ico-share-after"></Icon>
+                <div class="font-medium text-sm mr-2 text-[var(--primary)]" id="txt-share">点击复制链接</div>
             </div>
 
             <script>
@@ -221,6 +222,24 @@ const jsonLd = {
                         event.target.closest('#btn-share')) {
                         const title = document.getElementById("tit-share")?.innerText;
                         navigator.clipboard.writeText(`${title} - ${location.href}`);
+
+                        const shareText = document.getElementById("txt-share");
+                        const shareIcon = document.getElementById("ico-share");
+                        const checkIcon = document.getElementById("ico-share-after");
+                        const clonedCheck = checkIcon?.cloneNode(true);
+                        const clonedShare = shareIcon?.cloneNode(true);
+                        clonedCheck.id = shareIcon.id;
+                        clonedCheck.style = "";
+
+                        shareText.innerText = "已复制！";
+                        shareIcon?.replaceWith(clonedCheck);
+                        console.log('Hi!');
+                        setTimeout(()=>{
+                            console.log('Bye!');
+                            const shareIcon = document.getElementById("ico-share");
+                            shareText.innerText = "点击复制链接";
+                            shareIcon?.replaceWith(clonedShare);
+                        }, 1000)
                     }
                 });
             </script>
