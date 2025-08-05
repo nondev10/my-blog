@@ -151,7 +151,7 @@ Hi!
     console.log("pass");
     const text = document.getElementById("pass").value;
     const El = document.getElementById("wow");
-    El.innerHTML = `Hi~${text}`;
+    El.innerText = `Hi~${text}`;  // Replace 'HTML' with 'Text' for security
   }
 </script>
 <input id="nam" style="background-color:cyan">

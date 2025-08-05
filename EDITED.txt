@@ -7,6 +7,9 @@ new-post.bat
 Posts Contents:
 src\content\posts
 
+Improve SEO:
+src\pages\[...page].astro
+
 Basic Custom:
 src\assets\images
 src\config.ts
