@@ -81,8 +81,8 @@ pnpm add sharp
 - `subtitle`：副标题，和主标题一起在主页标签页标题显示为 `主标题 - 副标题`。
 - `lang`：网站主题语言，从注释中选择一个。
 - `themeColor`：主题色，可在预览界面右上角的画板选择一种你喜欢的颜色然后把那个数作为 `hue` 值填进去。填完以后你就可以把 `fixed` 改成 `true` 这样别人就没法在他们那改你网站的主题色了。
-- `banner`：就是背景图，你可以自己画一张或者找一张（注意许可！）然后放进项目文件夹（最好和 `favicon`、`avatar` 一起放进 `src\assets\images`），然后在 `src` 字段填写相对路径。
-- `favicon`：网站标签页的图标，同 `banner`。
+- `banner`：就是背景图，你可以自己画一张或者找一张（注意许可！）然后放进项目文件夹（最好和 `avatar` 一起放进 `src\assets\images`），然后在 `src` 字段填写相对路径。
+- `favicon`：网站标签页的图标，同 `banner`（注意：路径相对于 `/public`！）。
 - `links`：顶部导航栏上的链接。
 - `avatar`：你的头像，同 `banner`。
 - `name`：你的昵称。

@@ -21,8 +21,8 @@ export const siteConfig: SiteConfig = {
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: true, // Display the credit text of the banner image
-			text: "The lost, is the life.", // Credit text to be displayed
-			url: "javascript:alert('Let's Sayhow!')", // (Optional) URL link to the original artwork or artist's page
+			text: "Getting more, lossing more.", // Credit text to be displayed
+			url: "", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
 	toc: {
@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src: "src/assets/images/favicon.png", // *src!
+			src: "/favicon/favicon.png", // *src!
 		},
 		// Leave this array empty to use the default favicon
 		// {
@@ -49,7 +49,7 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.About,
 		{
 			name: "个人网站",
-			url: "https://www.sayhow.us.kg", // Internal links should not include the base path, as it is automatically added
+			url: "https://www.shihao.us.kg", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
 		},
 		{
@@ -63,7 +63,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "IOfficial",
-	bio: "The lost, is the life.",
+	bio: "Getting more, losing more.",
 	links: [
 		{
 			name: "GitHub",
@@ -71,7 +71,7 @@ export const profileConfig: ProfileConfig = {
 			url: "https://github.com/nondev10",
 		},
 		{
-			name: "Email",
+			name: "E-mail",
 			icon: "fa6-regular:envelope",
 			url: "mailto:hi@sayhow.us.kg",
 		},

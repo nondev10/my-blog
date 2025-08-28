@@ -12,6 +12,7 @@ src\pages\[...page].astro
 
 Basic Custom:
 src\assets\images
+public\favicon
 src\config.ts
 astro.config.mjs
 src\content\posts
