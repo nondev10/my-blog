@@ -142,8 +142,35 @@ git push
 
 你只需要重复之前的写文章和提交操作，你的文章就会被自动部署到 Cloudflare！
 
+如果嫌麻烦的话还可以试试我写的一个简单的脚本，只要在根目录创建一个 `bat` 后缀的文件写入以下内容，以后每次要写文章只需要运行此脚本跟着提示做就可以实现半自动创建文章并提交(～￣▽￣)～（仅Windows）
+
+```batch
+@echo off
+git pull
+
+:: Create
+set /p mark="Press article keywords("-^" to link): "
+echo Run it by yourself: pnpm new-post %mark%
+echo Then press enter to open the blog with default method.
+
+pause > nul
+
+explorer ".\src\content\posts\%mark%.md"
+
+echo Press enter to submit the blog.
+pause > nul
+
+:: Commit
+git add .
+git commit -m "Update %mark%"
+git push
+
+echo Press enter to end.
+pause > nul
+```
+
 :::tip
-这里我遇到一个问题是，自动部署总是出错，貌似是 `src\styles\markdown.css` 的问题。一种快捷的临时解决方法是在开头添加 `@import './main.css';`，不知道日后会不会修复。
+这里我遇到一个问题是，自动部署总是出错，貌似是 `src\styles\markdown.css` 的问题。一种快捷的临时解决方法是在开头添加 `@import './main.css';`，不知道日后会不会修复。（并且该框架在某些浏览器会得白化病）
 :::
 
 ## 后话 & 致谢
