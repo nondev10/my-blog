@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src: "/src/assets/images/favicon.png",	// *src!
+			src: "src/assets/images/favicon.png", // *src!
 		},
 		// Leave this array empty to use the default favicon
 		// {
@@ -54,15 +54,14 @@ export const navBarConfig: NavBarConfig = {
 		},
 		{
 			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
+			url: "https://github.com/nondev10/my-blog", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
 		},
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar:
-		"assets/images/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "assets/images/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "IOfficial",
 	bio: "The lost, is the life.",
 	links: [
@@ -72,7 +71,7 @@ export const profileConfig: ProfileConfig = {
 			url: "https://github.com/nondev10",
 		},
 		{
-			name: "GitHub",
+			name: "Email",
 			icon: "fa6-regular:envelope",
 			url: "mailto:hi@sayhow.us.kg",
 		},

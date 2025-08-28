@@ -1,6 +1,5 @@
 @echo off
 git pull
-git remote set-url origin git@github.com:nondev10/my-blog.git
 
 :: Create
 set /p mark="Press article keywords("-^" to link): "
