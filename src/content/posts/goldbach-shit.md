@@ -19,12 +19,12 @@ lang: ''
 
 通常，哥猜被定义为“任意大偶数可表为两个素数之和”基于此易推得满足哥猜的条件：
 
-$$\begin{align}
+\[ \begin{align}
 & \because \left(\forall n \in 2\mathbb{N},n>2\right) \exist n=p+q : p,q \in \mathbb{P} \\
 & \therefore \left(\forall n \in 2\mathbb{N},n>2\right) \exist n=p+(n-p) : p,(n-p) \in \mathbb{P} \\
 & \because \mathbb{P}\in\mathbb{N} , \mathbb{P}_{\text{min}}=2 \\
 & \therefore \left(n \in 2\mathbb{N},n>2,p\in\mathbb{N},p\geq 2\right) n \to p+(n-p) \,\exist p,(n-p)\in\mathbb{P} \\
-\end{align}$$
+\end{align} \]
 
 基于 **公式(4)** 我们有定义：
 
