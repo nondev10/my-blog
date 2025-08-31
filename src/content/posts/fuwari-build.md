@@ -41,11 +41,11 @@ Github 的仓库名称最好由小写字母和短横线（`-`）组成，这样�
 然后，我们用本地系统指令终端（cmd、ps随意）在你想要存放项目的目录（最好有1G以上空间！）把 **你自己的** Fuwari 仓库克隆下来，你可以用 HTTPS 也可以用 SSH，但我看到前人推荐用 SSH （理由是不用 *翻墙* 也能推送）所以我就用 SSH 啦~ 这里两种方法的指令都给出来，然后你自己选一个吧~
 
 ```batch
-:: HTTPS
+:: SSH
 git clone git@github.com:[你的仓库名称].git
 
-:: SSH
-
+:: HTTPS
+git clone https://github.com/[你的仓库名称].git
 ```
 
 :::tip
