@@ -124,7 +124,7 @@ MathJax = {
 <p>$$\begin{align}
 & \varrho\left(x\right)=\sum_{k=2}^{n-1}\psi\left(x,k\right) \\
 & \varrho_{rev}\left(x\right)=\sum_{k=2}^{n-1}\psi\left(\left(x-n\right),k\right) \\
-& \prod_{k=2}^{n-1}\left(p\left(k\right)\cdot p_{rev}\left(k\right)-1\right)=0 \\
+& \prod_{k=2}^{n-1}\left(\varrho\left(k\right)\cdot \varrho_{rev}\left(k\right)-1\right)=0 \\
 \end{align}$$</p>
 
 当且仅当哥德巴赫猜想成立时，**公式(18)** 成立。（**2.1** 末段的原理对此亦适用）
