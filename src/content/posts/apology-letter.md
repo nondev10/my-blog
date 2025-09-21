@@ -3,8 +3,8 @@ title: 关于周五的事一则简短的澄清声明
 published: 2025-09-21
 description: '一封未寄出的信'
 image: ''
-tags: ['数学', '函数']
-category: '记录'
+tags: ['体育', '交流']
+category: '寄语'
 draft: false 
 lang: ''
 ---

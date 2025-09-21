@@ -8,11 +8,3 @@ category: '寄语'
 draft: false 
 lang: ''
 ---
-
-## 引言
-
-## 方法
-
-## 成果
-
-## 讨论
