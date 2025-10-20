@@ -18,8 +18,8 @@ lang: ''
 3. US.KG（域名）：你可以在这里拿到免费的域名！（有可能失效！）
 4. VS Code（软件）：微软出品的贼酷贼好用的代码编辑器！我们用它来改博客框架。
 5. Marktext（软件）：免费开源的 Markdown 编辑器！我们用它来写博客。
-6. Git（软件）：一个贼牛的CLI版本控制器！我们用w它来管理我们的网站代码仓库。
-7. Node.js（运行环境）：一个很常用的 Javascript 运行环境。
+6. Git（软件）：一个贼牛的CLI版本控制器！我们用它来管理我们的网站代码仓库。
+7. Node.js（运行环境）：一个听说很常用的 Javascript 运行环境。
 
 此外你需要有最基本的电脑操作技能以及一点点🤏的前端编程基础，因为我们需要用 Markdown 来写博客所以也需要会一点 Markdown 啦~（可以在 [Markdown 基本语法 | Markdown 教程](https://markdown.com.cn/basic-syntax/) 学习 Markdown 语法，最快只需要半小时！q(≧▽≦q)）
 
