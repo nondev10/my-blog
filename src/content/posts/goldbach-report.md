@@ -1,13 +1,17 @@
 ---
-title: 若干种偶性哥德巴赫猜想的构造
+title: 【施工中】若干种偶性哥德巴赫猜想的构造
 published: 2025-08-28
-description: '🤓😁😄😭🐷🤡🤓😁😄😭🐷🤡🤓😁😄😭🐷🤡'
-image: ''
-tags: ['数学', '哥德巴赫猜想']
-category: '记录'
-draft: false 
-lang: ''
+description: TODO：改为哥德巴赫猜想研究“成果”（按：💩）记录
+image: ""
+tags:
+  - 数学
+  - 哥德巴赫猜想
+category: 记录
+draft: false
+lang: ""
 ---
+
+**即将迎来第二版，将添加研究中其他“成果”，并可能讲述研究过程。敬请期待！**
 
 ## 1 前言
 
