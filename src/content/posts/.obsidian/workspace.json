@@ -20,18 +20,6 @@
               "icon": "lucide-file",
               "title": "poem-collection"
             }
-          },
-          {
-            "id": "e85d0b8ac6133d36",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.11.4"
-              },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.11.4"
-            }
           }
         ]
       }

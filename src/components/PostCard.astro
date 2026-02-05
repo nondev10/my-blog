@@ -88,7 +88,7 @@ const { remarkPluginFrontmatter } = await entry.render();
         const UMAMI_CONFIG = {
             SHARE_ID: "BuiGgeembeJzQEsU",
             SITE_ID: "9a3d53bd-8ee3-4627-9c07-4f66fd0b4dc9",
-            API_BASE: "https://us.umami.is",
+            API_BASE: "https://cloud.umami.is",
         };
 
         // Main Init
@@ -121,17 +121,17 @@ const { remarkPluginFrontmatter } = await entry.render();
 
             try {
                 // Get Token
-                const tokenRes = await fetch(`${UMAMI_CONFIG.API_BASE}/api/share/${UMAMI_CONFIG.SHARE_ID}`);
+                const tokenRes = await fetch(`${UMAMI_CONFIG.API_BASE}/analytics/us/api/share/${UMAMI_CONFIG.SHARE_ID}`);
                 const { token } = await tokenRes.json();
                 
                 // Build Request
-                const apiUrl = new URL(`${UMAMI_CONFIG.API_BASE}/api/websites/${UMAMI_CONFIG.SITE_ID}/stats`);
+                const apiUrl = new URL(`${UMAMI_CONFIG.API_BASE}/analytics/us/websites/${UMAMI_CONFIG.SITE_ID}/stats`);
                 apiUrl.search = new URLSearchParams({
                     startAt: 0,
                     endAt: Date.now(),
                     unit: 'hour',
                     timezone: 'Asia/Hong_Kong',
-                    url: `/posts/${slug}/`,
+                    url: `eq./posts/${slug}/`,
                     compare: 'false'
                 });
                 
