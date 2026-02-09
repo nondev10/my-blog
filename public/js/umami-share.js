@@ -114,17 +114,69 @@ Author 二叉树树 / afoim / Acofork (Website 2x.nz, acofork.com)
 			// Try the documented `/api/websites/.../stats` first.
 			const statsApiUrl = `${baseUrl.replace(/\/$/, '')}/api/websites/${websiteId}/stats?${params.toString()}`;
 
-			const res = await fetch(statsApiUrl, {
+			let res = await fetch(statsApiUrl, {
 				headers: {
 					"x-umami-share-token": token,
 				},
 			});
 
-			if (!res.ok) {
-				if (res.status === 401 && !isRetry) {
-					global.clearUmamiShareCache();
-					return doFetch(true);
+			// If we get a 401, token may be expired -> clear cache and retry once
+			if (!res.ok && res.status === 401 && !isRetry) {
+				global.clearUmamiShareCache();
+				return doFetch(true);
+			}
+
+			// If server returns 400 (bad request), it often means the `path` param
+			// does not match any expected format. Try some common path variants
+			// (with/without trailing slash, with/without `eq.` prefix) before failing.
+			if (!res.ok && res.status === 400) {
+				try {
+					const originalPath = queryParams.path;
+					if (originalPath) {
+						const variants = [];
+						// original
+						variants.push(originalPath);
+						// without trailing slash
+						if (originalPath.endsWith('/')) variants.push(originalPath.replace(/\/$/, ''));
+						// with trailing slash
+						if (!originalPath.endsWith('/')) variants.push(`${originalPath}/`);
+						// without eq. prefix
+						if (originalPath.startsWith('eq.')) variants.push(originalPath.replace(/^eq\./, ''));
+						// with eq. prefix
+						if (!originalPath.startsWith('eq.')) variants.push(`eq.${originalPath}`);
+
+						// Deduplicate
+						const tried = new Set();
+						for (const p of variants) {
+							const candidate = p;
+							if (tried.has(candidate)) continue;
+							tried.add(candidate);
+							const paramsObj = { ...queryParams, path: candidate };
+							const paramsTry = new URLSearchParams({
+								startAt: params.get('startAt') || 0,
+								endAt: params.get('endAt') || Date.now(),
+								unit: params.get('unit') || 'hour',
+								timezone: params.get('timezone') || queryParams.timezone || 'Asia/Shanghai',
+								compare: params.get('compare') || false,
+								...paramsObj,
+							});
+							const tryUrl = `${baseUrl.replace(/\/$/, '')}/api/websites/${websiteId}/stats?${paramsTry.toString()}`;
+							const tryRes = await fetch(tryUrl, {
+								headers: { 'x-umami-share-token': token },
+							});
+							if (tryRes.ok) {
+								const altData = await tryRes.json();
+								global.__umamiDataCache.set(cacheKey, altData);
+								return altData;
+							}
+						}
+					}
+				} catch (e) {
+					// ignore and fall through to generic error
 				}
+			}
+
+			if (!res.ok) {
 				throw new Error("获取统计数据失败");
 			}
 
