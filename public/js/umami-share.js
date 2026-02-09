@@ -94,15 +94,27 @@ Author 二叉树树 / afoim / Acofork (Website 2x.nz, acofork.com)
 				...queryParams,
 			});
 
-			// Ensure stats endpoint uses `/websites/.../stats` under the same analytics base
-			// Some baseUrl values include an `/api` segment for the share endpoint
-			// (e.g. `/analytics/us/api/share/...`), while the stats endpoint lives at
-			// `/analytics/us/websites/.../stats`. Remove a trailing `/api` if present.
-			let statsBase = baseUrl.replace(/\/api(\/|$)/, '/');
-			statsBase = statsBase.replace(/\/$/, '');
-			const statsUrl = `${statsBase}/websites/${websiteId}/stats?${params.toString()}`;
+			// First try a shared stats endpoint that some Umami deployments expose
+			// which does not require sending a custom header (avoids preflight/CORS issues):
+			//   GET {baseUrl}/api/share/{shareId}/stats?...
+			// If that fails, fall back to the token-authenticated websites stats endpoint.
+			const shareStatsUrl = `${baseUrl.replace(/\/$/, '')}/api/share/${shareId}/stats?${params.toString()}`;
+			try {
+				const shareRes = await fetch(shareStatsUrl);
+				if (shareRes.ok) {
+					const shareData = await shareRes.json();
+					global.__umamiDataCache.set(cacheKey, shareData);
+					return shareData;
+				}
+			} catch (e) {
+				// ignore and fall through to token-authenticated fetch
+			}
 
-			const res = await fetch(statsUrl, {
+			// Build stats URL for token-authenticated endpoint.
+			// Try the documented `/api/websites/.../stats` first.
+			const statsApiUrl = `${baseUrl.replace(/\/$/, '')}/api/websites/${websiteId}/stats?${params.toString()}`;
+
+			const res = await fetch(statsApiUrl, {
 				headers: {
 					"x-umami-share-token": token,
 				},
