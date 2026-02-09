@@ -94,7 +94,13 @@ Author 二叉树树 / afoim / Acofork (Website 2x.nz, acofork.com)
 				...queryParams,
 			});
 
-			const statsUrl = `${baseUrl}/api/websites/${websiteId}/stats?${params.toString()}`;
+			// Ensure stats endpoint uses `/websites/.../stats` under the same analytics base
+			// Some baseUrl values include an `/api` segment for the share endpoint
+			// (e.g. `/analytics/us/api/share/...`), while the stats endpoint lives at
+			// `/analytics/us/websites/.../stats`. Remove a trailing `/api` if present.
+			let statsBase = baseUrl.replace(/\/api(\/|$)/, '/');
+			statsBase = statsBase.replace(/\/$/, '');
+			const statsUrl = `${statsBase}/websites/${websiteId}/stats?${params.toString()}`;
 
 			const res = await fetch(statsUrl, {
 				headers: {
