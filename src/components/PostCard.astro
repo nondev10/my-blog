@@ -82,121 +82,88 @@ const { remarkPluginFrontmatter } = await entry.render();
 
     </div>
 
-    <!-- *umami.is -->
-    <script>
-        // Const Config
+    <!-- Use shared umami helper (public/js/umami-share.js) -->
+    <script src="/js/umami-share.js" defer></script>
+    <script type="module">
         const UMAMI_CONFIG = {
             SHARE_ID: "BuiGgeembeJzQEsU",
             SITE_ID: "9a3d53bd-8ee3-4627-9c07-4f66fd0b4dc9",
-            API_BASE: "https://cloud.umami.is",
+            API_BASE: "https://cloud.umami.is/analytics/us",
         };
 
-        // Main Init
         document.addEventListener('DOMContentLoaded', () => {
             initRouterListener();
             initUmamiCounters();
         });
 
-        // Init Counters
         function initUmamiCounters() {
             document.querySelectorAll('[data-slug]').forEach(counter => {
-                // Prevent Repeated Init
                 if (counter.dataset.umamiInit) return;
                 counter.dataset.umamiInit = true;
-                
                 setupCounter(counter);
             });
         }
 
-        // Update Counters
         function refreshCounters() {
-            console.log('[Umami] 刷新统计数据...');
             document.querySelectorAll('[data-slug]').forEach(setupCounter);
         }
 
-        // Get Data
         async function setupCounter(counterEl) {
             const slug = counterEl.dataset.slug;
             if (!slug) return;
 
             try {
-                // Get Token
-                const tokenRes = await fetch(`${UMAMI_CONFIG.API_BASE}/analytics/us/api/share/${UMAMI_CONFIG.SHARE_ID}`);
-                const { token } = await tokenRes.json();
-                
-                // Build Request
-                const apiUrl = new URL(`${UMAMI_CONFIG.API_BASE}/analytics/us/websites/${UMAMI_CONFIG.SITE_ID}/stats`);
-                apiUrl.search = new URLSearchParams({
+                if (typeof window.fetchUmamiStats !== 'function') {
+                    console.warn('[Umami] fetchUmamiStats 未就绪');
+                    counterEl.textContent = '统计更新中...';
+                    return;
+                }
+
+                const stats = await window.fetchUmamiStats(UMAMI_CONFIG.API_BASE, UMAMI_CONFIG.SHARE_ID, {
+                    path: `eq./posts/${slug}/`,
+                    timezone: 'Asia/Hong_Kong',
                     startAt: 0,
                     endAt: Date.now(),
                     unit: 'hour',
-                    timezone: 'Asia/Hong_Kong',
-                    path: `eq./posts/${slug}/`,
-                    compare: 'false'
+                    compare: false,
                 });
-                
-                // Get Data
-                const dataRes = await fetch(apiUrl, {
-                    headers: { 'x-umami-share-token': token }
-                });
-                
-                // Update UI
-                const { pageviews, visitors } = await dataRes.json();
-                const text = `${pageviews?.value || 0} 次浏览 · ${visitors?.value || 0} 人看过`;
-                
-                counterEl.textContent = text;
-                
-            } catch (error) {
-                console.warn('[Umami] 数据获取失败:', error);
+
+                const { pageviews, visitors } = stats || {};
+                counterEl.textContent = `${pageviews?.value || 0} 次浏览 · ${visitors?.value || 0} 人看过`;
+            } catch (err) {
+                console.warn('[Umami] 数据获取失败:', err);
                 counterEl.textContent = '统计更新中...';
             }
         }
 
-        // Update Counter Assist
-        function updateCounter(element, text) {
-            if (element && element.textContent !== text) {
-                element.textContent = text;
-            }
-        }
-
-        // SPA Monitor System
         function initRouterListener() {
-            // SPA History Operations Intercept
             const nativePushState = history.pushState;
             const nativeReplaceState = history.replaceState;
-            
+
             history.pushState = function(state, title, url) {
                 nativePushState.apply(this, arguments);
                 onRouteChange(url);
             };
-            
+
             history.replaceState = function(state, title, url) {
                 nativeReplaceState.apply(this, arguments);
                 onRouteChange(url);
             };
-            
-            // Navigation Event
+
             window.addEventListener('popstate', () => onRouteChange());
-            
-            // Monitor DOM
+
             const observer = new MutationObserver(mutations => {
                 if (mutations.some(m => m.addedNodes.length)) {
                     initUmamiCounters();
                 }
             });
-            
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
+
+            observer.observe(document.body, { childList: true, subtree: true });
         }
 
-        // SPA Change Manage
         function onRouteChange(url) {
-            // Anti-shake Processing
             if (window.__umamiDebounce) clearTimeout(window.__umamiDebounce);
             window.__umamiDebounce = setTimeout(() => {
-                console.log('[路由变化] 刷新计数器', url || location.href);
                 refreshCounters();
                 window.__umamiDebounce = null;
             }, 300);
