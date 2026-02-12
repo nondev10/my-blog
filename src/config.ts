@@ -53,9 +53,14 @@ export const navBarConfig: NavBarConfig = {
 			external: true, // Show an external link icon and will open in a new tab
 		},
 		{
+			name: "访问统计",
+			url: "https://cloud.umami.is/analytics/us/share/BuiGgeembeJzQEsU",
+			external: true,
+		},
+		{
 			name: "GitHub",
-			url: "https://github.com/nondev10/my-blog", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			url: "https://github.com/nondev10/my-blog",
+			external: true,
 		},
 	],
 };

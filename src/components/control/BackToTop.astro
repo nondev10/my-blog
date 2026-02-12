@@ -11,6 +11,15 @@ import { Icon } from "astro-icon/components";
     </div>
 </div>
 
+<!-- *Go to discuss -->
+<div id="go-to-discuss" class="go-to-discuss-wrapper hidden lg:block" style="position:absolute; margin-top: 10rem;">
+    <div class="go-to-discuss-btn flex items-center rounded-2xl overflow-hidden transition" onclick="goToDiscuss()">
+        <button class="btn-card h-[3.75rem] w-[3.75rem]">
+            <Icon name="material-symbols:comment-rounded" class="mx-auto"></Icon>
+        </button>
+    </div>
+</div>
+
 <style lang="stylus">
 .back-to-top-wrapper
     width: 3.75rem
@@ -40,10 +49,43 @@ import { Icon } from "astro-icon/components";
     &:active
       transform: translateX(5rem) scale(0.9)
 
+/* *Go to discuss wrapper style */
+.go-to-discuss-wrapper
+    width: 3.75rem
+    height: 3.75rem
+    position: absolute
+    right: 0
+    top: 0
+    pointer-events: none
+
+/* *Go to discuss button style */
+.go-to-discuss-btn
+    color: var(--primary)
+    font-size: 2.25rem
+    font-weight: bold
+    border: none
+    position: fixed
+    bottom: 5rem
+    opacity: 1
+    cursor: pointer
+    transform: translateX(5rem)
+    pointer-events: auto
+
 </style>
 
 <script is:raw is:inline>
 function backToTop() {
     window.scroll({ top: 0, behavior: 'smooth' });
+}
+
+// *Go to giscuss function
+function goToDiscuss() {
+    const element = document.getElementsByClassName("giscus")[0];
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start' // Or 'center', 'end', 'nearest'
+        });
+    }
 }
 </script>

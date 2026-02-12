@@ -144,8 +144,12 @@ const bannerOffset =
 			data-input-position="bottom"
 			data-theme="preferred_color_scheme"
 			data-lang="zh-CN"
-			crossorigin="anonymous">
+			crossorigin="anonymous"
+			defer>
 		</script>
+
+		<!-- *Console Addon-->
+		<script src="/public/js/console.js" defer></script>
 
 		{favicons.map(favicon => (
 			<link rel="icon"

@@ -1,6 +1,3 @@
-Javascript:
-public\js\umami-share.js
-
 README Contents:
 README.md
 
@@ -26,18 +23,21 @@ src\content\posts
 Deploy Fix:
 src\styles\markdown.css
 
-Giscus, Umami and imgZoom in <HEAD>:
+Giscus, Umami, Console Addon and imgZoom in <HEAD>:
 src\layouts\Layout.astro
 
 Custom Navbar:
 src\layouts\MainGridLayout.astro
 src\components\Navbar.astro
 
-Umami views, Giscus comments, Share addon:
+Go to Discuss Addon:
+src\components\control\BackToTop.astro
+
+Giscus Comments, Share Addon:
 src\pages\posts\[...slug].astro
 
-PostCard views:
-src\components\PostCard.astro
+Console Addon:
+public\js\console.js
 
-Profile views:
-src\components\widget\Profile.astro
+Printer:
+src\pages\posts\[...slug].astro

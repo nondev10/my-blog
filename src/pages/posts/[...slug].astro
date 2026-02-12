@@ -67,102 +67,7 @@ const jsonLd = {
                         {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
                     </div>
                 </div>
-                <!-- *views -->
-                <div class="flex flex-row items-center">
-                    <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
-                        <Icon name="material-symbols:visibility-outline-rounded"></Icon>
-                    </div>
-                    <div class="text-sm" id="views-counter">加载中……</div>
-                </div>
             </div>
-
-            <!-- *umami.is -->
-            <script>
-                setupUmamiCounter();
-
-                // ============ SPA Monitor =============
-                function setupSPAListener(init, update) {
-                    // Initialize
-                    init();
-                    
-                    // Stats Tracking
-                    let currentPath = location.pathname;
-                    
-                    // Route change detection function
-                    const detectRouteChange = () => {
-                        const newPath = location.pathname;
-                        if (newPath !== currentPath) {
-                            currentPath = newPath;
-                            update();
-                        }
-                    };
-                    
-                    // Standard Route monitoring
-                    window.addEventListener('popstate', detectRouteChange);
-                    
-                    // Coverage routing API
-                    ['pushState', 'replaceState'].forEach(method => {
-                        const original = history[method];
-                        history[method] = function() {
-                            original.apply(this, arguments);
-                            setTimeout(detectRouteChange, 10);
-                        };
-                    });
-                }
-
-                // ========== Umami counter ===========
-                function setupUmamiCounter() {
-                    const CONFIG = {
-                        UMAMI_SHARE_ID: "BuiGgeembeJzQEsU",
-                        SITE_ID: "9a3d53bd-8ee3-4627-9c07-4f66fd0b4dc9",
-                        API_BASE: "https://us.umami.is"
-                    };
-                    
-                    // Updata counter text
-                    const updateCounter = (text) => {
-                        const counterEl = document.getElementById('views-counter');
-                        if (counterEl) counterEl.textContent = text;
-                    };
-                    
-                    // Main function
-                    const fetchPageViews = async () => {
-                        try {
-                            // Get Token
-                            const tokenRes = await fetch(`${CONFIG.API_BASE}/api/share/${CONFIG.UMAMI_SHARE_ID}`);
-                            const { token } = await tokenRes.json();
-                            
-                            // Structure API Request
-                            const apiUrl = new URL(`${CONFIG.API_BASE}/api/websites/${CONFIG.SITE_ID}/stats`);
-                            const params = new URLSearchParams({
-                                startAt: 0,
-                                endAt: Date.now(),
-                                unit: 'hour',
-                                timezone: 'Asia/Hong_Kong',
-                                url: location.pathname,
-                                compare: 'false'
-                            });
-                            apiUrl.search = params.toString();
-                            
-                            // Get data
-                            const dataRes = await fetch(apiUrl, {
-                                headers: { 'x-umami-share-token': token }
-                            });
-                            
-                            const { pageviews, visitors } = await dataRes.json();
-                            updateCounter(`${pageviews?.value || 0} 次浏览 · ${visitors?.value || 0} 人看过`);
-                        } catch (error) {
-                            console.error('[Umami]', error);
-                            updateCounter('统计更新中...');
-                        }
-                    };
-                    
-                    // Set SPA monitor
-                    setupSPAListener(fetchPageViews, fetchPageViews);
-                }
-
-                // Start after DOM loaded
-                window.addEventListener('DOMContentLoaded', setupUmamiCounter);
-            </script>
 
             <!-- title -->
             <div class="relative onload-animation">
@@ -201,6 +106,23 @@ const jsonLd = {
                 <Content />
             </Markdown>
 
+            <!-- *Print Addon -->
+            <div class="flex flex-row items-center justify-end mb-5">
+                <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
+                    <Icon name="material-symbols:print-outline-rounded"></Icon>
+                </div>
+                <div id="print-addon" class="text-50 text-sm font-medium">
+                    打印本文章
+                </div>
+            </div>
+
+            <!-- *Print Addon Function -->
+            <script type="moudule" src="/js/printer.js"></script>
+            <script>
+                const element = document.getElementById("print-addon");
+                element.addEventListener("click", () => {window.print()})
+            </script>
+
             <!-- *Share -->
             <div class="btn-card w-full p-4 rounded-xl bg-white mb-6" id="btn-share">
                 <div class="btn-regular rounded-lg h-10 w-10 active:scale-90 mr-3">
@@ -235,9 +157,7 @@ const jsonLd = {
                         shareLink.innerText = "已复制！";
                         shareText.innerText = "感谢分享！";
                         shareIcon?.replaceWith(clonedCheck);
-                        console.log('Hi!');
                         setTimeout(()=>{
-                            console.log('Bye!');
                             const shareIcon = document.getElementById("ico-share");
                             shareLink.innerText = "点击复制链接";
                             shareText.innerText = "分享本文";

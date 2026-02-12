@@ -1,5 +1,5 @@
 ---
-title: 【施工中】若干种偶性哥德巴赫猜想的构造
+title: 若干种偶性哥德巴赫猜想的构造
 published: 2025-08-28
 description: TODO：改为哥德巴赫猜想研究“成果”（按：💩）记录
 image: ""
