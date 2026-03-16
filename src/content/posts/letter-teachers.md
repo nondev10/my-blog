@@ -37,7 +37,7 @@ lang: ""
 
 ## 二
 
-![](assets/images/1ef0077c46355eace35fbd2f8b4033cda419aba0.png)
+![](assets/images/letter-teachers-fig.png)
 
 上图是我七八年级历次考试的成绩（包括“生地会考”），而下表是我历学期各科的听课程度和自主完成的作业完成占所有作业比重自评 *（原谅我没有时间画热度图、同样没有对照客观值做校验，但意思是清楚的）*：
 

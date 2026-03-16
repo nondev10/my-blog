@@ -26,6 +26,7 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 
 // https://astro.build/config
 export default defineConfig({
+	content: {ignore: ['.obsidian/**']}, // *Ignore Specified File
 	site: "https://blog.shihao.us.kg/",	// *Replace Domain
 	base: "/",
 	trailingSlash: "always",
