@@ -296,7 +296,7 @@ $\sqrt{a^{2}}$ 与 $(\sqrt{a})^{2}$ 的区别与联系
 
 ### 13 四边形
 
-多边形常用公式：$\left\{\begin{matrix}n\,边形内角和公式:(n-2)\cdot180^{\circ}\\求正\,n\,边形各内角度数:\frac{(n-2)\cdot180^{\circ}}{n}\end{matrix}\right.$
+多边形常用公式：$\left\{\begin{matrix}n\,\text{边形内角和公式}:(n-2)\cdot180^{\circ}\\ \text{求正}\,n\,\text{边形各内角度数}:\frac{(n-2)\cdot180^{\circ}}{n}\end{matrix}\right.$
 
 正方形、矩形、菱形和平行四边形的关系：
 ![](assets/images/note-math-01-7.png)

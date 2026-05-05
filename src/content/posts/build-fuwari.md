@@ -1,12 +1,14 @@
 ---
 title: 我是怎么用Fuwari搭建这个博客的
 published: 2025-08-28
-description: '简单记录一下我搭建这个博客的过程，不知道算不算一种教程，嗨呀~(～o￣3￣)～'
-image: ''
-tags: ['博客', 'Fuwari']
-category: '记录'
+description: 简单记录一下我搭建这个博客的过程，不知道算不算一种教程，嗨呀~(～o￣3￣)～
+image: ""
+tags:
+  - 博客
+  - Fuwari
+category: 记录
 draft: false 
-lang: ''
+lang: ""
 ---
 
 ## 工欲善其事，必先利其器

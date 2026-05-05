@@ -2,7 +2,7 @@
 title: "博客标准（文件命名） #01"
 published: 2026-02-16
 description: 规范好，多规范，规好范。
-image:
+image: ""
 tags:
   - 博客
 category: 标准

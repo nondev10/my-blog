@@ -2,11 +2,13 @@
 title: 我又错了！！！
 published: 2025-09-21
 description: '再也不想说话了……'
-image: ''
-tags: ['数学', '函数']
-category: '记录'
+image: ""
+tags:
+  - 数学
+  - 函数
+category: 记录
 draft: false 
-lang: ''
+lang: ""
 ---
 
 ## 情景再现
