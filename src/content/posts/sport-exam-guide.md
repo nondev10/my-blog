@@ -1,9 +1,12 @@
 ---
-title: 体育中考临时训练指南
+title: 体育中考临时训练指南【待修订】
 published: 2026-04-20
 description: 马上就要体育中考了，来看看怎么在最后阶段冲刺吧！涵盖舒经活络、立定跳远、中长跑和营养补给全攻略。
 image: ""
-tags: [体育, 中考, 攻略]
+tags:
+  - 体育
+  - 中考
+  - 攻略
 category: 学习
 draft: false
 lang: ""
