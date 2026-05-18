@@ -8,7 +8,7 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-	title: "IOfficial",
+	title: "Shihao",
 	subtitle: "Blogs",
 	lang: "zh_CN", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th'
 	themeColor: {
@@ -78,7 +78,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "E-mail",
 			icon: "fa6-regular:envelope",
-			url: "mailto:hi@sayhow.us.kg",
+			url: "mailto:hi@shihao.us.kg",
 		},
 		{
 			name: "Zhihu",
