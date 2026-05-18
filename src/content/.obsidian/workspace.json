@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "sport-exam-guide.md",
+                "file": "posts/poem-loyal.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sport-exam-guide"
+              "title": "poem-loyal"
             }
           }
         ]
@@ -172,9 +172,21 @@
   },
   "active": "c1e4688c28d19bde",
   "lastOpenFiles": [
-    "sport-exam-guide.md",
-    "sport-exam-guide.md",
+    "posts/sport-exam-guide.md",
+    "posts/sci-roman-number.md",
+    "posts/poem-loyal.md",
+    "posts/poem-way-home.md",
+    "posts/article-the-dog.md",
+    "posts/poem-the-sky.md",
+    "posts/blog.md",
+    "posts/report-goldbach.md",
+    "posts/build-fuwari.md",
+    "spec/about.md",
+    "未命名 1.md",
     "未命名.md",
+    "未命名",
+    "sport-exam-guide.md",
+    "sport-exam-guide.md",
     "temp/main.md",
     "assets/images/sport-44.png",
     "assets/images/sport-43.png",
@@ -204,19 +216,7 @@
     "poem-way-home.md",
     "note-english-scattered.md",
     "sci-roman-number.md",
-    "poem-loyal.md",
-    "templates/template-scicomm.md",
-    "templates/template-standard.md",
-    "note-math-scattered.md",
-    "poem-eve-touch.md",
-    "diary-good-friday.md",
-    "note-chinese-scattered.md",
-    "reflection-teacher.md",
-    "poem-the-sky.md",
-    "article-the-dog.md",
-    "hi.md",
     "未命名 1",
-    "templates",
-    "assets/images"
+    "templates"
   ]
 }

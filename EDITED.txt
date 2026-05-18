@@ -1,17 +1,17 @@
-Blog Match Fix:
-src\content.config.ts
-
 README Contents:
 README.md
 
 Edited Contents:
 EDITED.txt
 
+.Obsidian & Templates:
+src\content
+
+Posts:
+src\content\Posts
+
 Auto New Post:
 new-post.bat
-
-Posts & .Obsidian & Templates:
-src\content\posts
 
 Improve SEO:
 src\pages\[...page].astro
