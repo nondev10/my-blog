@@ -3,10 +3,13 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils.ts";
 
+const isTopLevelPost = ({ data, id }: { data: { draft?: boolean }; id: string }) => {
+	const isTopLevel = !id.includes("/");
+	return isTopLevel && (import.meta.env.PROD ? data.draft !== true : true);
+};
+
 export async function getSortedPosts() {
-	const allBlogPosts = await getCollection("posts", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
+	const allBlogPosts = await getCollection("posts", isTopLevelPost);
 
 	const sorted = allBlogPosts.sort((a, b) => {
 		const dateA = new Date(a.data.published);
@@ -32,9 +35,7 @@ export type Tag = {
 };
 
 export async function getTagList(): Promise<Tag[]> {
-	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
+	const allBlogPosts = await getCollection<"posts">("posts", isTopLevelPost);
 
 	const countMap: { [key: string]: number } = {};
 	allBlogPosts.map((post: { data: { tags: string[] } }) => {
@@ -59,9 +60,7 @@ export type Category = {
 };
 
 export async function getCategoryList(): Promise<Category[]> {
-	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
+	const allBlogPosts = await getCollection<"posts">("posts", isTopLevelPost);
 	const count: { [key: string]: number } = {};
 	allBlogPosts.map((post: { data: { category: string | null } }) => {
 		if (!post.data.category) {
