@@ -1,5 +1,5 @@
 ---
-title: 拾皓诗（💩）词集校注
+title: 《拾皓诗（💩）词集校注》
 published: 2025-10-26
 description: 一些微不足道的习作
 image: ""

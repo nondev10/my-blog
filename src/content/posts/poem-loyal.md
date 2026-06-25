@@ -1,5 +1,5 @@
 ---
-title: 眷属
+title: 《眷属》
 published: 2026-03-13
 description: 我与 AI 对话摘编，今天不想写诗，就先这样。
 image: ""

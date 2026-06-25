@@ -1,5 +1,5 @@
 ---
-title: 续写《变色龙》
+title: 《续写〈变色龙〉》
 published: 2026-03-07
 description: 「席加洛夫静静地趴在案上，档案在第十三页。」
 image: ""

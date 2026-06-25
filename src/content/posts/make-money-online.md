@@ -45,7 +45,7 @@ lang: ""
 ## 菜单
 
 本文中我所用到的几个软件：
-1. 趣闲赚：[点此下载](https://z.hyktn.cn/p/hqnxg)
+1. 趣闲赚：[点此下载](https://hydx.lianqukj.com/p/hqnxg)
 2. 赏帮赚：[点此下载](https://rduit.xiyouji.work/?codecode=30425137)
 3. 众人帮：[点此下载](https://m.zrb.net/)
 

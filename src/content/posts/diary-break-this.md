@@ -1,5 +1,5 @@
 ---
-title: 日记集既此
+title: 《日记集既此》
 published: 2026-03-07
 description: 「夜漆漆，月光寒，昔人一去不复反。」
 image: ""

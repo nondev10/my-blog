@@ -1,5 +1,5 @@
 ---
-title: 受难日最后的祈祷
+title: 《受难日最后的祈祷》
 published: 2026-02-22
 description: 「受难日没有祷告 / 正如遥不可及的明天 / 也似平静的澜波」
 image: ""

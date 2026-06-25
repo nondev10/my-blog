@@ -1,5 +1,5 @@
 ---
-title: 关于周五的事一则简短的澄清声明
+title: 《关于周五的事一则简短的澄清声明》
 published: 2025-09-21
 description: 一封未寄出的信
 image: ""
@@ -7,7 +7,7 @@ tags:
   - 体育
   - 交流
 category: 寄语
-draft: false 
+draft: false
 lang: ""
 ---
 
