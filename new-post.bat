@@ -1,22 +1,22 @@
 @echo off
+chcp 65001 >nul
+:: 支持中文显示（可选）
 git pull
 
-:: Create
-set /p mark="Press article keywords("-^" to link): "
-echo Run it by yourself: pnpm new-post %mark%
-echo Then press enter to open the blog with default method.
+:: 设置默认值
+set "mark=Contents"
+:: 提示用户输入，若直接回车则保留默认值
+set /p "mark=Press your blog name (Default: %mark%): "
 
-pause > nul
+echo.
+echo Ready to commit with message: "Update %mark%"
+echo Press any key to submit...
+pause >nul
 
-explorer ".\src\content\posts\%mark%.md"
-
-echo Press enter to submit the blog.
-pause > nul
-
-:: Commit
+:: 执行 Git 命令
 git add .
 git commit -m "Update %mark%"
 git push
 
-echo Press enter to end.
-pause > nul
+echo Done!
+pause
