@@ -4,7 +4,8 @@ published: 2026-05-23
 description: 5 月 22 日，湄洲岛一游
 image: ""
 tags:
-category:
+  - 生活
+category: 记录
 draft: true
 lang: ""
 ---
